@@ -15,28 +15,27 @@
 //         return result.toString();
 //     }}
 
-import java.util.Scanner;
+import java.util.*;
 
 public class removeduplicates {
     public static String removeDuplicates(String str) {
-        boolean[] seen = new boolean[256];
-        char[] chars = str.toCharArray();
-        int index = 0;
+        boolean seen[]=new boolean[256];
+        char chars[]=str.toCharArray();
+        int index=0;
 
-        for (int i = 0; i < chars.length; i++) {
+        for(int i=0;i<chars.length;i++){
             if (!seen[chars[i]]) {
-                seen[chars[i]] = true;
-                chars[index++] = chars[i];
+                seen[chars[i]]=true;
+                chars[index++]=chars[i];
             }
         }
-        return new String(chars, 0, index);
+        return new String(chars,0,index);
     }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-        scanner.close();
-        System.out.println("String after removing duplicates: " + removeDuplicates(input));
+        Scanner in=new Scanner(System.in);
+        System.out.print("Enter a string");
+        String input=in.nextLine();
+        in.close();
+        System.out.println("String after removing duplicates"+removeDuplicates(input));
     }
 }
