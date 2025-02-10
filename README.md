@@ -16,3 +16,7 @@ feature-02-02-25 added this keyword use
 feature-03-02-2025 commit static,final,costructor assigment and making management system
 
 feature-05-02-2025 commited object oriented design,class diagram,block diagram
+
+ feature-08-02-2025 commited inheritance assigment
+
+  feature-10-02-25 commited polymorphism and encapsulation asingment
