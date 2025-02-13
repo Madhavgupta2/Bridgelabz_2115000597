@@ -1,0 +1,92 @@
+abstract class FoodItem{
+    private String itemName;
+    private double price;
+    private int quantity;
+    public abstract double calculateTotalPrice();
+    public void getItemDetails(){
+        System.out.println("Item: "+itemName+" Price: "+price+" Quantity: "+quantity);
+    }
+    public String getItemName(){
+        return itemName;
+    }
+    public void setItemName(String itemName){
+        this.itemName=itemName;
+    }
+    public double getPrice(){
+        return price;
+    }
+    public void setPrice(double price){
+        this.price=price;
+    }
+    public int getQuantity(){
+        return quantity;
+    }
+    public void setQuantity(int quantity){
+        this.quantity=quantity;
+    }
+}
+
+class VegItem extends FoodItem{
+    public double calculateTotalPrice(){
+        return getPrice()*getQuantity();
+    }
+}
+
+class NonVegItem extends FoodItem{
+    public double calculateTotalPrice(){
+        return getPrice()*getQuantity() + 20;  // Additional charge for non-veg items
+    }
+}
+
+interface Discountable{
+    double applyDiscount();
+    String getDiscountDetails();
+}
+
+class VegItemDiscount implements Discountable{
+    public double applyDiscount(){
+        return 0.1;  // 10% discount on veg items
+    }
+    public String getDiscountDetails(){
+        return "Veg Item Discount: 10%";
+    }
+}
+
+class NonVegItemDiscount implements Discountable{
+    public double applyDiscount(){
+        return 0.05;  // 5% discount on non-veg items
+    }
+    public String getDiscountDetails(){
+        return "Non-Veg Item Discount: 5%";
+    }
+}
+
+public class OnlineFoodDeliverySystem{
+    public static void main(String[] args){
+        FoodItem item1=new VegItem();
+        item1.setItemName("Veg Pizza");
+        item1.setPrice(300);
+        item1.setQuantity(2);
+        
+        FoodItem item2=new NonVegItem();
+        item2.setItemName("Chicken Burger");
+        item2.setPrice(150);
+        item2.setQuantity(3);
+        
+        Discountable vegDiscount=new VegItemDiscount();
+        Discountable nonVegDiscount=new NonVegItemDiscount();
+        
+        FoodItem[] orderItems={item1,item2};
+        double totalOrderPrice=0;
+        for(FoodItem item:orderItems){
+            item.getItemDetails();
+            double totalPrice=item.calculateTotalPrice();
+            totalOrderPrice+=totalPrice;
+            if(item instanceof VegItem) totalPrice -= totalPrice * vegDiscount.applyDiscount();
+            if(item instanceof NonVegItem) totalPrice -= totalPrice * nonVegDiscount.applyDiscount();
+            System.out.println("Total Price (after discount): "+totalPrice);
+        }
+        
+        System.out.println("Total Order Price: "+totalOrderPrice);
+    }
+}
