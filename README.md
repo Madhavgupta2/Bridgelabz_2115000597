@@ -19,4 +19,8 @@ feature-05-02-2025 commited object oriented design,class diagram,block diagram
 
  feature-08-02-2025 commited inheritance assigment
 
-  feature-10-02-25 commited polymorphism and encapsulation asingment
+  feature-10-02-25 commited polymorphism and encapsulation asingment 
+
+  feature-11-02-25 commited linklist assignment
+
+  feature-13-02-25 commited stack queue hashmap assignment
