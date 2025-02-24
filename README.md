@@ -1,4 +1,5 @@
 # Bridgelabz_2115000597
+
 feature-22-01-25 basic question 
 
 feature-23-01-25  conditional assigment  loop 
@@ -32,5 +33,13 @@ feature-05-02-2025 commited object oriented design,class diagram,block diagram
  feature-17-02-25 commited big-o notion complexity anylysis
 
  feature-18-02-25 commited generics class
+
+ feature-19-02-25 committed collections
+
+ feature-21-02-25 commited java streams and  exeception 
+
+ feature-22-02-25 commited  Regex and unit 
+
+ feature-24-02-25 commited Annotations and Reflection 
 
  
